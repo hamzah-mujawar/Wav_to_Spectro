@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from scipy import signal
 import os
 from scipy.io import wavfile
-dataset_path = 'notes_v2'
+dataset_path = 'Archive'
 
 
 for i, (dirpath, dirnames, filenames) in enumerate(
@@ -22,4 +22,7 @@ for i, (dirpath, dirnames, filenames) in enumerate(
             plt.margins(0, 0)
             plt.gca().xaxis.set_major_locator(plt.NullLocator())
             plt.gca().yaxis.set_major_locator(plt.NullLocator())
-            plt.savefig(file_path + ".png", bbox_inches ='tight', pad_inches = 0)
+            filename_without_ext = os.path.splitext(file_path)[0]
+
+            plt.savefig(filename_without_ext + ".png", bbox_inches ='tight', pad_inches = 0)
+            print('processing... ' + filename_without_ext)
